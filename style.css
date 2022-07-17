@@ -1,0 +1,46 @@
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+ul,
+ol,
+li,
+a,
+div,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 65%;
+    height: 70vh;
+    margin-inline: auto;
+    margin-top: 5rem;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+    width: 100%;
+}
+
+.container-pix {
+    flex: 1;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 5px;
+}
+.container-pix:hover {
+    background-color: white;
+}
