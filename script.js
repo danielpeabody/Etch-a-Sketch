@@ -1,4 +1,46 @@
+let DEFAULTCOLOR = 'black';
+let DEFAULTSIZE = 16;
 
+
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
+
+/*
+set color for sketch pad
+*/
+let color = document.querySelector(".colorPick")
+let submitColor = document.getElementById("colorbutton");
+submitColor.addEventListener("click",function(){
+    DEFAULTCOLOR = color.value;
+    console.log(DEFAULTCOLOR);
+    color.value = "";
+})
+
+// change color for sketch pad
+function changeColor(e){
+    if(e.type === 'mouseover'){
+        if(mouseDown){
+            e.target.style.backgroundColor = DEFAULTCOLOR;
+        }
+    };
+}
+
+//set size for grid for sketch pad
+let size = document.querySelector(".sizePick")
+let submitSize = document.getElementById("sizebutton");
+submitSize.addEventListener("click",function(){
+    DEFAULTSIZE = size.value;
+    createGrid(DEFAULTSIZE);
+    size.value = "";
+})
+
+
+const reset = document.querySelector(".resetButton")
+reset.addEventListener('click',function(){
+    createGrid();
+})
 
 
 /*
@@ -6,6 +48,9 @@
 */
 function createGrid(size){
     const mainGrid = document.querySelector(".pix-container");
+    while (mainGrid.firstChild){
+        mainGrid.removeChild(mainGrid.firstChild);
+    }
     for(let y = 0; y < size; y++){
         const newContainer = document.createElement('div');
         newContainer.classList.add('container');
@@ -21,16 +66,4 @@ function createGrid(size){
     }
 }
 
-createGrid(20);
-
-let mouseDown = false
-document.body.onmousedown = () => (mouseDown = true)
-document.body.onmouseup = () => (mouseDown = false)
-
-function changeColor(e){
-    if(e.type === 'mouseover'){
-        if(mouseDown){
-            e.target.style.backgroundColor = 'green';
-        }
-    };
-}
+createGrid(DEFAULTSIZE);
