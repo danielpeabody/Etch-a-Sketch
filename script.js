@@ -25,7 +25,7 @@ function changeColor(e){
             e.target.style.backgroundColor = DEFAULTCOLOR;
         }
     }
-    else if(e.type === 'touchmove'){
+    else{
         e.target.style.backgroundColor = DEFAULTCOLOR;
     }
 }
