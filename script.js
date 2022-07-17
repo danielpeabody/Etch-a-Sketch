@@ -24,7 +24,10 @@ function changeColor(e){
         if(mouseDown){
             e.target.style.backgroundColor = DEFAULTCOLOR;
         }
-    };
+    }
+    else if(e.type === 'touchmove'){
+        e.target.style.backgroundColor = DEFAULTCOLOR;
+    }
 }
 
 //set size for grid for sketch pad
@@ -61,6 +64,8 @@ function createGrid(size){
             newPix.classList.add('container-pix');
             newPix.addEventListener('mouseover',changeColor);
             newPix.addEventListener('mousedown',changeColor);
+            newPix.addEventListener('touchstart',changeColor);
+            newPix.addEventListener('touchmove',changeColor);
             newContainer.appendChild(newPix);
         }
     }
