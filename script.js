@@ -5,7 +5,7 @@
 @ param {number} size; Number of rows and columns for the grid
 */
 function createGrid(size){
-    const mainGrid = document.querySelector(".main-container");
+    const mainGrid = document.querySelector(".pix-container");
     for(let y = 0; y < size; y++){
         const newContainer = document.createElement('div');
         newContainer.classList.add('container');
